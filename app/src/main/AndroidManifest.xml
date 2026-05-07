@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Manifest file contains app permissions and activity declarations -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permission for accessing images on Android 13+ -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <!-- Permission for reading storage on older Android versions -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Lost &amp; Found App"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LostFoundApp">
+
+        <!-- Detail page activity -->
+        <activity android:name=".AdvertDetailActivity" />
+
+        <!-- Screen that displays all adverts -->
+        <activity android:name=".ViewAdvertsActivity" />
+
+        <!-- Screen used to create adverts -->
+        <activity android:name=".AddAdvertActivity" />
+
+        <!-- Main launcher activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <!-- Makes MainActivity the starting screen -->
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>

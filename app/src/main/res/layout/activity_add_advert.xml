@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ScrollView allows the form to move on smaller screens -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Page heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Advert"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#111827"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Page description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add the details about the lost or found item :)."
+            android:textSize="15sp"
+            android:textColor="#6B7280"
+            android:layout_marginBottom="18dp" />
+
+        <!-- White card container for the form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="@drawable/bg_card">
+
+            <!-- Lost or Found label -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CATEGORY"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#374151"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Radio buttons for lost/found -->
+            <RadioGroup
+                android:id="@+id/rgPostType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/rbLost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lost"
+                    android:textColor="#111827"
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:id="@+id/rbFound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Found"
+                    android:textColor="#111827"
+                    android:textSize="15sp"
+                    android:layout_marginStart="30dp" />
+
+            </RadioGroup>
+
+            <!-- Item name input -->
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Item name"
+                android:textColor="#111827"
+                android:textColorHint="#9CA3AF"
+                android:padding="14dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Phone number input -->
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Phone number"
+                android:inputType="phone"
+                android:textColor="#111827"
+                android:textColorHint="#9CA3AF"
+                android:padding="14dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Category spinner -->
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Description input -->
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:hint="Description"
+                android:gravity="top"
+                android:textColor="#111827"
+                android:textColorHint="#9CA3AF"
+                android:padding="14dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Location input -->
+            <EditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Location"
+                android:textColor="#111827"
+                android:textColorHint="#9CA3AF"
+                android:padding="14dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Image preview -->
+            <ImageView
+                android:id="@+id/imgPreview"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:background="@drawable/bg_image_box"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Image upload button -->
+            <Button
+                android:id="@+id/btnSelectImage"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Upload Item Image"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_secondary_button"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Save advert button -->
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:text="Save Advert"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_primary_button" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
