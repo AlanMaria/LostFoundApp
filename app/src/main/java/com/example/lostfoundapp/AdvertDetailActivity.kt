@@ -8,7 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-// This screen shows the full details of one selected advert.
+
 class AdvertDetailActivity : AppCompatActivity() {
 
     private lateinit var detailImageView: ImageView
@@ -16,16 +16,16 @@ class AdvertDetailActivity : AppCompatActivity() {
     private lateinit var removeAdvertButton: Button
     private lateinit var databaseHelper: DatabaseHelper
 
-    // This stores the advert ID received from the RecyclerView item click.
+
     private var selectedAdvertId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Connect this activity to the advert detail XML layout.
+
         setContentView(R.layout.activity_advert_detail)
 
-        // Connect XML views to Kotlin variables.
+
         detailImageView = findViewById(R.id.imgDetail)
         advertDetailsText = findViewById(R.id.tvDetails)
         removeAdvertButton = findViewById(R.id.btnRemove)
@@ -35,12 +35,12 @@ class AdvertDetailActivity : AppCompatActivity() {
         // Get the advert ID passed from AdvertAdapter.
         selectedAdvertId = intent.getIntExtra("advertId", -1)
 
-        // If the ID is valid, load the selected advert details.
+
         if (selectedAdvertId != -1) {
             loadSelectedAdvertDetails()
         }
 
-        // Remove advert from database when the item is resolved.
+
         removeAdvertButton.setOnClickListener {
             val isDeleted = databaseHelper.deleteAdvert(selectedAdvertId)
 
@@ -53,7 +53,7 @@ class AdvertDetailActivity : AppCompatActivity() {
         }
     }
 
-    // This function loads one advert from SQLite and displays it on the screen.
+
     private fun loadSelectedAdvertDetails() {
 
         val selectedAdvert = databaseHelper.getAdvertById(selectedAdvertId)
@@ -67,8 +67,8 @@ class AdvertDetailActivity : AppCompatActivity() {
                 detailImageView.setImageResource(android.R.drawable.ic_menu_gallery)
             }
 
-            // Triple quotes allow multiline text.
-            // trimIndent removes unwanted spaces from the beginning of each line.
+
+
             advertDetailsText.text = """
                 ${selectedAdvert.postType}: ${selectedAdvert.name}
                 
@@ -79,7 +79,7 @@ class AdvertDetailActivity : AppCompatActivity() {
                 
                 Description:
                 ${selectedAdvert.description}
-            """.trimIndent()
+            """.trimIndent() // trimIndent removes unwanted spaces from the beginning of each line.
         }
     }
 }

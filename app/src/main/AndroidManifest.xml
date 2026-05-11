@@ -19,21 +19,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LostFoundApp">
 
-        <!-- Detail page activity -->
+
         <activity android:name=".AdvertDetailActivity" />
 
-        <!-- Screen that displays all adverts -->
+
         <activity android:name=".ViewAdvertsActivity" />
 
-        <!-- Screen used to create adverts -->
+
         <activity android:name=".AddAdvertActivity" />
 
-        <!-- Main launcher activity -->
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
 
-            <!-- Makes MainActivity the starting screen -->
+
             <intent-filter>
 
                 <action android:name="android.intent.action.MAIN" />

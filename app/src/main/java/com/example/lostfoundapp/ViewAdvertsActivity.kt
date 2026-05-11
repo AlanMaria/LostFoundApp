@@ -8,8 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-// This screen displays all saved adverts.
-// It also allows the user to filter adverts by category.
+
 class ViewAdvertsActivity : AppCompatActivity() {
 
     private lateinit var advertsRecyclerView: RecyclerView
@@ -53,10 +52,10 @@ class ViewAdvertsActivity : AppCompatActivity() {
             categoryList
         )
 
-        // Show all adverts when the screen first opens.
+
         loadAllAdverts()
 
-        // When filter button is clicked, show only the selected category.
+
         filterButton.setOnClickListener {
             val selectedCategory = categoryFilterSpinner.selectedItem.toString()
 
@@ -71,7 +70,7 @@ class ViewAdvertsActivity : AppCompatActivity() {
         }
     }
 
-    // This function loads all adverts from SQLite and sends them to RecyclerView.
+
     private fun loadAllAdverts() {
         val advertList = databaseHelper.getAllAdverts()
 

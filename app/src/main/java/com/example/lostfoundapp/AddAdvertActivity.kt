@@ -48,7 +48,7 @@ class AddAdvertActivity : AppCompatActivity() {
                     Intent.FLAG_GRANT_READ_URI_PERMISSION
                 )
 
-                // This shows the selected image in the preview box.
+                // shows image in the preview box.
                 previewImageView.setImageURI(imageUri)
             }
         }
@@ -56,7 +56,7 @@ class AddAdvertActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Connect this activity to the add advert XML layout.
+
         setContentView(R.layout.activity_add_advert)
 
         databaseHelper = DatabaseHelper(this)
@@ -72,7 +72,7 @@ class AddAdvertActivity : AppCompatActivity() {
         uploadImageButton = findViewById(R.id.btnSelectImage)
         saveAdvertButton = findViewById(R.id.btnSave)
 
-        // These are the categories shown in the spinner.
+        // These are the categories for  spinner
         val categoryList = arrayOf(
             "Electronics",
             "Pets",
@@ -83,30 +83,30 @@ class AddAdvertActivity : AppCompatActivity() {
             "Other"
         )
 
-        // This adds the category list into the spinner.
+
         categorySpinner.adapter = ArrayAdapter(
             this,
             android.R.layout.simple_spinner_dropdown_item,
             categoryList
         )
 
-        // This opens the gallery picker when the upload button is clicked.
+        // This opens the gallery picker
         uploadImageButton.setOnClickListener {
             imagePicker.launch(arrayOf("image/*"))
         }
 
-        // This saves the advert when the save button is clicked.
+
         saveAdvertButton.setOnClickListener {
             saveAdvert()
         }
     }
 
-    // This function checks the form and saves the advert into SQLite.
+
     private fun saveAdvert() {
 
         val selectedPostTypeId = postTypeRadioGroup.checkedRadioButtonId
 
-        // The user must select either Lost or Found.
+
         if (selectedPostTypeId == -1) {
             Toast.makeText(this, "Please select Lost or Found", Toast.LENGTH_SHORT).show()
             return
@@ -119,7 +119,7 @@ class AddAdvertActivity : AppCompatActivity() {
         val itemLocation = locationInput.text.toString().trim()
         val selectedCategory = categorySpinner.selectedItem.toString()
 
-        // This validation prevents empty details from being saved.
+
         if (
             itemName.isEmpty() ||
             phoneNumber.isEmpty() ||
@@ -130,19 +130,19 @@ class AddAdvertActivity : AppCompatActivity() {
             return
         }
 
-        // Image is required for each advert.
+
         if (selectedImageUri == null) {
             Toast.makeText(this, "Please upload an image", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // This creates the current date and time automatically.
+
         val currentDateTime = SimpleDateFormat(
             "dd MMM yyyy, hh:mm a",
             Locale.getDefault()
         ).format(Date())
 
-        // This creates an Advert object using all the user-entered details.
+
         val newAdvert = Advert(
             id = 0,
             postType = selectedPostType,
@@ -161,7 +161,7 @@ class AddAdvertActivity : AppCompatActivity() {
         if (isInserted) {
             Toast.makeText(this, "Advert saved successfully", Toast.LENGTH_SHORT).show()
 
-            // Close this screen and return to the previous page.
+
             finish()
         } else {
             Toast.makeText(this, "Failed to save advert", Toast.LENGTH_SHORT).show()
